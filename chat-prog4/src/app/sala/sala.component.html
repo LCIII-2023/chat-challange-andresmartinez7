@@ -1,0 +1,25 @@
+<div class="border border-primary p-3">
+    <h2>Sala de Chat</h2>
+    <h3>Conversación:</h3>
+
+    @for (mensaje of mensajes; track $index) {
+        <div class="mt-3">
+            <strong>{{mensaje.usuario}}:</strong> {{ mensaje.texto }}
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-6">
+            <app-mensaje-usuario 
+                [usuario]="usuario1"
+                (mensajeEnviado)="agregarMensaje($event)"
+            />
+        </div>
+        <div class="col-6">
+            <app-mensaje-usuario 
+                [usuario]="usuario2"
+                (mensajeEnviado)="agregarMensaje($event)"
+            />
+        </div>
+    </div>
+</div>
